@@ -5481,7 +5481,7 @@ html.header-dark .userbox .dropdown-menu a {
 	box-shadow: none;
 	border: none;
 	/* WHY?
-	+ .panel {
+	+ .users {
 		margin-top: 35px;
 	}*/;
 }

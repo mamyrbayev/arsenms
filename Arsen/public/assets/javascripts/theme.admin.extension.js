@@ -5,44 +5,44 @@ window.admin = {};
 (function( $ ) {
 
 	$(function() {
-		$('.panel')
-			.on( 'click', '.panel-actions a.fa-caret-up', function( e ) {
+		$('.users')
+			.on( 'click', '.users-actions a.fa-caret-up', function( e ) {
 				e.preventDefault();
 
 				var $this,
 					$panel;
 
 				$this = $( this );
-				$panel = $this.closest( '.panel' );
+				$panel = $this.closest( '.users' );
 
 				$this
 					.removeClass( 'fa-caret-up' )
 					.addClass( 'fa-caret-down' );
 
-				$panel.find('.panel-body, .panel-footer').slideDown( 200 );
+				$panel.find('.users-body, .users-footer').slideDown( 200 );
 			})
-			.on( 'click', '.panel-actions a.fa-caret-down', function( e ) {
+			.on( 'click', '.users-actions a.fa-caret-down', function( e ) {
 				e.preventDefault();
 
 				var $this,
 					$panel;
 
 				$this = $( this );
-				$panel = $this.closest( '.panel' );
+				$panel = $this.closest( '.users' );
 
 				$this
 					.removeClass( 'fa-caret-down' )
 					.addClass( 'fa-caret-up' );
 
-				$panel.find('.panel-body, .panel-footer').slideUp( 200 );
+				$panel.find('.users-body, .users-footer').slideUp( 200 );
 			})
-			.on( 'click', '.panel-actions a.fa-times', function( e ) {
+			.on( 'click', '.users-actions a.fa-times', function( e ) {
 				e.preventDefault();
 
 				var $panel,
 					$row;
 
-				$panel = $(this).closest('.panel');
+				$panel = $(this).closest('.users');
 
 				if ( !!( $panel.parent('div').attr('class') || '' ).match( /col-(xs|sm|md|lg)/g ) && $panel.siblings().length === 0 ) {
 					$row = $panel.closest('.row');

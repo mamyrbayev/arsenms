@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Validator;
-class UserController extends Controller
+class ApiUserController extends Controller
 {
     public $successStatus = 200;
     /**

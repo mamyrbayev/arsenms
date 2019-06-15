@@ -19,8 +19,18 @@
 
                     <div class="form-group mb-lg">
                         <label>Name</label>
-                        <input name="name" type="text" class="form-control input-lg" />
-                        @error('name')
+                        <input name="first_name" type="text" class="form-control input-lg" />
+                        @error('first_name')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group mb-lg">
+                        <label>Name</label>
+                        <input name="last_name" type="text" class="form-control input-lg" />
+                        @error('last_name')
                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

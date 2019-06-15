@@ -212,7 +212,7 @@
 
       // Prepare the editor
       if (this.$editor == null) {
-        // Create the panel
+        // Create the users
         var editorHeader = $('<div/>', {
                             'class': 'md-header btn-toolbar'
                             })

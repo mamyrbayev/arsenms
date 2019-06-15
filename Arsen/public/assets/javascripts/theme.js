@@ -695,8 +695,8 @@ window.theme = {};
 			return [
 					'<section id="LockScreenInline" class="body-sign body-locked body-locked-inline">',
 						'<div class="center-sign">',
-							'<div class="panel panel-sign">',
-								'<div class="panel-body">',
+							'<div class="users users-sign">',
+								'<div class="users-body">',
 									'<form>',
 										'<div class="current-user text-center">',
 											'<img id="LockUserPicture" src="{{picture}}" alt="John Doe" class="img-circle user-image" />',
@@ -750,44 +750,44 @@ window.theme = {};
 (function( $ ) {
 
 	$(function() {
-		$('.panel')
-			.on( 'click', '.panel-actions a.fa-caret-up', function( e ) {
+		$('.users')
+			.on( 'click', '.users-actions a.fa-caret-up', function( e ) {
 				e.preventDefault();
 
 				var $this,
 					$panel;
 
 				$this = $( this );
-				$panel = $this.closest( '.panel' );
+				$panel = $this.closest( '.users' );
 
 				$this
 					.removeClass( 'fa-caret-up' )
 					.addClass( 'fa-caret-down' );
 
-				$panel.find('.panel-body, .panel-footer').slideDown( 200 );
+				$panel.find('.users-body, .users-footer').slideDown( 200 );
 			})
-			.on( 'click', '.panel-actions a.fa-caret-down', function( e ) {
+			.on( 'click', '.users-actions a.fa-caret-down', function( e ) {
 				e.preventDefault();
 
 				var $this,
 					$panel;
 
 				$this = $( this );
-				$panel = $this.closest( '.panel' );
+				$panel = $this.closest( '.users' );
 
 				$this
 					.removeClass( 'fa-caret-down' )
 					.addClass( 'fa-caret-up' );
 
-				$panel.find('.panel-body, .panel-footer').slideUp( 200 );
+				$panel.find('.users-body, .users-footer').slideUp( 200 );
 			})
-			.on( 'click', '.panel-actions a.fa-times', function( e ) {
+			.on( 'click', '.users-actions a.fa-times', function( e ) {
 				e.preventDefault();
 
 				var $panel,
 					$row;
 
-				$panel = $(this).closest('.panel');
+				$panel = $(this).closest('.users');
 
 				if ( !!( $panel.parent('div').attr('class') || '' ).match( /col-(xs|sm|md|lg)/g ) && $panel.siblings().length === 0 ) {
 					$row = $panel.closest('.row');
@@ -3244,7 +3244,7 @@ window.theme = {};
 				return this;
 			}
 
-			var collapse = panel.find('.panel-actions').children('a.fa-caret-up, a.fa-caret-down'),
+			var collapse = panel.find('.users-actions').children('a.fa-caret-up, a.fa-caret-down'),
 				isCollapsed = !!collapse.hasClass('fa-caret-up'),
 				isRemoved = !panel.closest('body').get(0);
 
@@ -3269,9 +3269,9 @@ window.theme = {};
 					var panel = $('#' + panelId);
 					if (!panel.data('portlet-state-loaded')) {
 						if (state == 'collapsed') {
-							panel.find('.panel-actions a.fa-caret-down').trigger('click');
+							panel.find('.users-actions a.fa-caret-down').trigger('click');
 						} else if (state == 'removed') {
-							panel.find('.panel-actions a.fa-times').trigger('click');
+							panel.find('.users-actions a.fa-times').trigger('click');
 						}
 						panel.data('portlet-state-loaded', true);
 					}
@@ -3303,7 +3303,7 @@ window.theme = {};
 
 			this.loadState();
 
-			$el.find('.panel-actions').on( 'click', 'a.fa-caret-up, a.fa-caret-down, a.fa-times', function( e ) {
+			$el.find('.users-actions').on( 'click', 'a.fa-caret-up, a.fa-caret-down, a.fa-times', function( e ) {
 				setTimeout(function() {
 					_self.saveState( $el );
 				}, 250);
