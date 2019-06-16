@@ -35,4 +35,28 @@ class UserController extends Controller
 
         return redirect()->route('users.index');
     }
+
+    public function addToBalance(Request $request, $id){
+        $user = User::findOrFail($id);
+
+        $balance = $request->balance;
+        if($balance > 0) {
+            $user->balance = $user->balance + $balance;
+            $user->save();
+        }
+
+        return redirect()->route('users.index');
+    }
+
+    public function withdrawFromBalance(Request $request, $id){
+        $user = User::findOrFail($id);
+
+        $balance = $request->balance;
+
+        if($user->balance >= $balance){
+            $user->balance = $user->balance - $balance;
+            $user->save();
+        }
+        return redirect()->route('users.index');
+    }
 }

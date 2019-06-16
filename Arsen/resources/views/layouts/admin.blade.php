@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{asset('assets/vendor/morris/morris.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/vendor/select2/select2.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/vendor/jquery-datatables-bs3/assets/css/datatables.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/vendor/pnotify/pnotify.custom.css')}}" />
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{asset('assets/stylesheets/theme.css')}}" />
@@ -189,7 +190,9 @@
 <script src="{{asset('assets/javascripts/dashboard/examples.dashboard.js')}}"></script>
 <script src="{{asset('assets/javascripts/tables/examples.datatables.default.js')}}"></script>
 <script src="{{asset('assets/javascripts/tables/examples.datatables.row.with.details.js')}}"></script>
-<script src="{{asset('assets/javascripts/tables/examples.datatables.tabletools.js')}}"></script>		<script src="assets/javascripts/ui-elements/examples.lightbox.js"></script>
+<script src="{{asset('assets/javascripts/tables/examples.datatables.tabletools.js')}}"></script>
 <script src="{{asset('assets/javascripts/ui-elements/examples.lightbox.js')}}"></script>
+<script src="{{asset('assets/javascripts/ui-elements/examples.lightbox.js')}}"></script>
+<script src="{{asset('assets/javascripts/ui-elements/examples.notifications.js')}}"></script>
 </body>
 </html>

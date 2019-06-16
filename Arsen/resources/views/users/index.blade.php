@@ -54,7 +54,6 @@
                         <td>
                             @if($user->role == 'Student' || $user->role == 'Organization')
                             <a class="popup-with-form btn btn-default" href="#demo-form">Edit</a>
-
                             <form id="demo-form" action="{{route('user.edit', ['id' => $user->id])}}" method="post" class="white-popup-block mfp-hide form-horizontal">
                                 {{csrf_field()}}
                                 <div class="row">
@@ -98,6 +97,59 @@
                                 </div>
 
                             </form>
+
+                            @if($user->role == 'Student')
+                            <a class="popup-with-form btn btn-default" href="#cash-in">Cash In</a>
+                            <form id="cash-in" action="{{route('user.addToBalance', ['id' => $user->id])}}" method="post" class="white-popup-block mfp-hide form-horizontal">
+                                    {{csrf_field()}}
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h3>Add to balance</h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mt-lg">
+                                        <label class="col-sm-3 control-label">Amount</label>
+                                        <div class="col-sm-9">
+                                            <input type="number" name="balance" class="form-control" placeholder="{{$user -> balance}}" required/>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-lg">
+                                        <div class="col-sm-9 col-sm-offset-3">
+                                            <button class="btn btn-primary">Submit</button>
+                                            <button type="reset" class="btn btn-default">Reset</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            @endif
+
+                            @if($user->role == 'Organization')
+                                <a class="popup-with-form btn btn-default" href="#cash-out">Cash Out</a>
+                                <form id="cash-out" action="{{route('user.withdrawFromBalance', ['id' => $user->id])}}" method="post" class="white-popup-block mfp-hide form-horizontal">
+                                    {{csrf_field()}}
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h3>Withdraw from balance</h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mt-lg">
+                                        <label class="col-sm-3 control-label">Amount</label>
+                                        <div class="col-sm-9">
+                                            <input type="number" name="balance" class="form-control" placeholder="{{$user -> balance}}" required/>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-lg">
+                                        <div class="col-sm-9 col-sm-offset-3">
+                                            <button class="mt-sm mb-sm btn btn-primary">Submit</button>
+                                            <button type="reset" class="btn btn-default">Reset</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            @endif
+
                             @endif
                         </td>
                     </tr>
