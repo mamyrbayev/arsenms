@@ -24,5 +24,6 @@ Route::post('register', 'API\ApiUserController@register');
 Route::group(['middleware' => 'auth:api'], function(){
 
     Route::post('details', 'API\ApiUserController@details');
+    Route::post('deal', 'API\ApiDealsController@deal');
 
 });
