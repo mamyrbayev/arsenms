@@ -14,11 +14,12 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/', ['uses' => 'HomeController@index' , 'as' => 'home']);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::get('/users', ['as' => 'users.index', 'uses' => 'UserController@index']);
+    Route::post('/user/edit/{id}', ['as' => 'user.edit', 'uses' => 'UserController@edit']);
 
 });
 

@@ -49,6 +49,21 @@
 
                     <div class="form-group mb-none">
                         <div class="row">
+                            <div class="col-md-6">
+                                <select data-plugin-selectTwo name="role" class="form-control populate" required>
+                                    <option>Student</option>
+                                    <option>Organization</option>
+                                </select>
+                            </div>
+                            @error('role')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group mb-none">
+                        <div class="row">
                             <div class="col-sm-6 mb-lg">
                                 <label>Password</label>
                                 <input name="password" type="password" class="form-control input-lg" />
