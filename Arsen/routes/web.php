@@ -23,6 +23,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::post('/user/balance/add/{id}', ['as' => 'user.addToBalance', 'uses' => 'UserController@addToBalance']);
     Route::post('/user/balance/withdraw/{id}', ['as' => 'user.withdrawFromBalance', 'uses' => 'UserController@withdrawFromBalance']);
 
+    Route::get('/deals', ['as' => 'deals.index', 'uses' => 'DealsController@index']);
+
 
 });
 

@@ -117,10 +117,15 @@
                             <li class="nav-active">
                                 <a href="/admin/users">
                                     <i class="fa fa-home" aria-hidden="true"></i>
-                                    <span>Dashboard</span>
+                                    <span>Users</span>
                                 </a>
                             </li>
-
+                            <li class="nav-active">
+                                <a href="/admin/deals">
+                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                    <span>Transactions</span>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
 

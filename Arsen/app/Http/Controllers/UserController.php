@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Deal;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use Session;
 use App\User;
@@ -43,6 +45,14 @@ class UserController extends Controller
         if($balance > 0) {
             $user->balance = $user->balance + $balance;
             $user->save();
+
+            $deal = Deal::create([
+                'sender_id' => Auth::id(),
+                'receiver_id' => $id,
+                'amount' => $balance,
+                'type' => "cashin",
+            ]);
+
         }
 
         return redirect()->route('users.index');
@@ -56,6 +66,14 @@ class UserController extends Controller
         if($user->balance >= $balance){
             $user->balance = $user->balance - $balance;
             $user->save();
+
+            $deal = Deal::create([
+                'sender_id' => $id,
+                'receiver_id' => Auth::id(),
+                'amount' => $balance,
+                'type' => "cashout",
+            ]);
+
         }
         return redirect()->route('users.index');
     }
