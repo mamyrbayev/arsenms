@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
@@ -36,18 +37,29 @@ class ApiDealsController extends Controller
 //            return response()->json(['error'=>$error], 418);
 //        }
 
-        $users = User::all();
+        $sender = User::find(Input::get('sender_id'));
 
-        foreach ($users as $user){
-            if($user->id == $input['sender_id']){
-                if(Hash::check(Input::get('password'), $user->password) == false){
+                if(Hash::check(Input::get('password'), $sender->password) == false){
                     $error['418'] =  'I am a teapot';
                     return response()->json(['error'=>$error], 418);
                 }
-
-            }
-
+        $receiver = User::find(Input::get('receiver_id'));
+        if(Input::get('amount') < 0){
+                if($sender->balance < Input::get('amount')){
+                    return response()->json('Not enough balance');
+                }
+            return response()->json('Only positive amount');
         }
+
+        $sender->balance = $sender->balance - Input::get('amount');
+        $receiver->balance = $receiver->balance + Input::get('amount');
+        $sender->save();
+        $receiver->save();
+
+
+
+//        $sender = User::where('id','=',Input::get('sender_id'));
+//        if(){}
 
         $deal = Deal::create([
             'sender_id' => $request->sender_id,
