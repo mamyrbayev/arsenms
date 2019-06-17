@@ -59,4 +59,32 @@ class ApiDealsController extends Controller
         $success['type'] =  $deal->type;
         return response()->json(['success'=>$success]);
     }
+
+
+
+    public function dealsByUser(Request $request){
+        $deals = Deal::all();
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()], 401);
+        }
+
+//        $users = User::all();
+
+        $mydeals = collect(new Deal());
+
+        foreach ($deals as $deal){
+            if($request->id == $deal->sender_id || $request->id == $deal->receiver_id){
+                $mydeals->add($deal);
+            }
+        }
+
+        $success['deals'] =  $mydeals;
+        return response()->json(['success'=>$success]);
+
+    }
+
+
 }

@@ -68,8 +68,8 @@ class UserController extends Controller
             $user->save();
 
             $deal = Deal::create([
-                'sender_id' => $id,
-                'receiver_id' => Auth::id(),
+                'sender_id' => Auth::id(),
+                'receiver_id' => $id,
                 'amount' => $balance,
                 'type' => "cashout",
             ]);
