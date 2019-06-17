@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 
 Route::post('login', 'API\ApiUserController@login');
 Route::post('register', 'API\ApiUserController@register');
+Route::get('secure/config/cache', 'API\ConfigController@configCache');
 
 Route::group(['middleware' => 'auth:api'], function(){
 
